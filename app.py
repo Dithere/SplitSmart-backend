@@ -690,6 +690,9 @@ def simplify_debts(user=Depends(get_current_user), db=Depends(get_db)):
         "net_position": round(total, 2),
         "status": "you_get" if total > 0 else "you_owe"
     }
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 
 if __name__ == "__main__":
